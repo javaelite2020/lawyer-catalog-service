@@ -35,6 +35,9 @@ public class Licenses implements Serializable {
 	@Column(name = "ACQUIRED_DATE")
 	private Date acquiredDate;
 	
+	@Column(name = "EXPIRED_DATE")
+	private Date expiredDate;
+	
 	@Column(name = "CREATED_BY")
 	private String createdBy;
 	
@@ -85,6 +88,15 @@ public class Licenses implements Serializable {
 
 	public void setAcquiredDate(Date acquiredDate) {
 		this.acquiredDate = acquiredDate;
+	}
+
+	
+	public Date getExpiredDate() {
+		return expiredDate;
+	}
+
+	public void setExpiredDate(Date expiredDate) {
+		this.expiredDate = expiredDate;
 	}
 
 	public String getCreatedBy() {
