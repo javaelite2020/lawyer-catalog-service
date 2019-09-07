@@ -1,0 +1,24 @@
+/*insert into LAWYER_DETAILS  values (1, 'test1', 'test1');
+insert into LAWYER_DETAILS  values (2, 'test2', 'test2');
+insert into LAWYER_DETAILS  values (3, 'test3', 'test3');
+insert into LAWYER_DETAILS  values (4, 'test4', 'test4');
+insert into LAWYER_DETAILS  values (5, 'test5', 'test5');
+insert into LAWYER_DETAILS  values (6, 'test6', 'test6');
+insert into LAWYER_DETAILS  values (7, 'test7', 'test7');
+insert into LAWYER_DETAILS  values (8, 'test8', 'test8');
+insert into LAWYER_DETAILS  values (9, 'test9', 'test9');
+insert into LAWYER_DETAILS  values (10, 'test10', 'test10');
+insert into LAWYER_DETAILS  values (11, 'test11', 'test11');
+insert into LAWYER_DETAILS  values (12, 'test12', 'test12');
+insert into LAWYER_DETAILS  values (13, 'test13', 'test13');
+insert into LAWYER_DETAILS  values (14, 'test14', 'test14');
+insert into LAWYER_DETAILS  values (15, 'test15', 'test15');
+insert into LAWYER_DETAILS  values (16, 'test16', 'test16');
+insert into LAWYER_DETAILS  values (17, 'test17', 'test17');
+insert into LAWYER_DETAILS  values (18, 'test18', 'test18');
+insert into LAWYER_DETAILS  values (19, 'test19', 'test19');
+insert into LAWYER_DETAILS  values (20, 'test20', 'test20');
+insert into LAWYER_DETAILS  values (21, 'test21', 'test21');
+insert into LAWYER_DETAILS  values (22, 'test22', 'test22');
+*/
+select * from LAWYER_DETAILS;
