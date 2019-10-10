@@ -1,6 +1,8 @@
 package com.javaelites.lawyercatalogservice.controller;
 
 import com.google.gson.Gson;
+import com.javaelites.lawyercatalogservice.domain.dto.LawyerDetailsApiData;
+import com.javaelites.lawyercatalogservice.domain.dto.LawyerListApiData;
 import com.javaelites.lawyercatalogservice.model.LawyerDetails;
 import com.javaelites.lawyercatalogservice.model.LawyerListApiModel;
 import com.javaelites.lawyercatalogservice.service.LawyerCatalogService;
@@ -10,6 +12,9 @@ import com.javaelites.lawyercatalogservice.util.ResponseApiData;
 import com.javaelites.lawyercatalogservice.util.SearchApiData;
 import io.swagger.annotations.Api;
 import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
