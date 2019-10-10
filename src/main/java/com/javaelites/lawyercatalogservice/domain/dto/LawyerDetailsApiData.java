@@ -4,62 +4,90 @@ import java.sql.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.javaelites.lawyercatalogservice.model.Associations;
+import com.javaelites.lawyercatalogservice.model.Awards;
+import com.javaelites.lawyercatalogservice.model.Documents;
+import com.javaelites.lawyercatalogservice.model.Education;
+import com.javaelites.lawyercatalogservice.model.Endorsements;
+import com.javaelites.lawyercatalogservice.model.LawyerLocation;
+import com.javaelites.lawyercatalogservice.model.PracticeArea;
+import com.javaelites.lawyercatalogservice.model.Publications;
+import com.javaelites.lawyercatalogservice.model.SpeakingEngagements;
 
-public class LawyerDetails {
+public class LawyerDetailsApiData {
 
-	@JsonProperty("LAWYER_ID")
+	@JsonProperty("lawyer_id")
 	private Long lawyerId;
 	
-	@JsonProperty("FIRST_NAME")
+	@JsonProperty("first_name")
 	private String firstName;
 	
-	@JsonProperty("MIDDLE_NAME")
+	@JsonProperty("middle_name")
 	private String middleName;
 	
-	@JsonProperty("LAST_NAME")
+	@JsonProperty("last_name")
 	private String lastName;
 	
-	@JsonProperty("DESCRIPTION")
+	@JsonProperty("description")
 	private String description;
 	
-	@JsonProperty("LONG_DESCRIPTION")
+	@JsonProperty("long_description")
 	private String longDescription;
 	
-	@JsonProperty("CELL_PHONE")
+	@JsonProperty("cell_phone")
 	private String cellPhone;
 	
-	@JsonProperty("OFFICE_PHONE")
+	@JsonProperty("office_phone")
 	private String officePhone;
 	
-	@JsonProperty("AVERAGE_RATING")
+	@JsonProperty("average_rating")
 	private Long averageRating;
 	
-	@JsonProperty("AVERAGE_LAWYER_RATING")
+	@JsonProperty("average_lawyer_rating")
 	private Long averageLawyerRating;
 	
-	@JsonProperty("WEBSITE")
+	@JsonProperty("website")
 	private String website;
 	
-	@JsonProperty("LAWFIRM_NAME")
+	@JsonProperty("lawfirm_name")
 	private String lawfirmName;
 	
-	@JsonProperty("LANGUAGES")
+	@JsonProperty("languages")
 	private String languages;
 	
-	@JsonProperty("CREATED_BY")
+	@JsonProperty("created_by")
 	private String createdBy;
 	
-	@JsonProperty("CREATED_DATE")
+	@JsonProperty("created_date")
 	private Date createdDate; 
 	
-	@JsonProperty("MODIFIED_BY")
+	@JsonProperty("modified_by")
 	private String modifiedBy;
 	
-	@JsonProperty("MODIFIED_DATE")
+	@JsonProperty("modified_date")
 	private Date modifiedDate;
 	
+	@JsonProperty("awards")
+	private List<Awards> awardsList;
+	@JsonProperty("associations")
+	private List<Associations> associationList;
+	@JsonProperty("documents")
+	private List<Documents> documentList;
+	@JsonProperty("education")
+	private List<Education> educationList;
+	@JsonProperty("endorsements")
+	private List<Endorsements> endorsementList;
+	@JsonProperty("practice_areas")
+	private List<PracticeArea> practiceAreaList;
+	@JsonProperty("publications")
+	private List<Publications> publicationList;
+	@JsonProperty("speaking_engagments")
+	private List<SpeakingEngagements> speakingEngagementList;
+
+	@JsonProperty("locations")
 	private List<LawyerLocation> lawyerLocation;
-	
+
+	@JsonProperty("consultation_cost")
 	private List<LawyerConsultationCost> lawyerConsultationCost;
 
 	public Long getLawyerId() {
@@ -213,6 +241,71 @@ public class LawyerDetails {
 	public void setLawyerConsultationCost(List<LawyerConsultationCost> lawyerConsultationCost) {
 		this.lawyerConsultationCost = lawyerConsultationCost;
 	}
+
+	public List<Awards> getAwardsList() {
+		return awardsList;
+	}
+
+	public void setAwardsList(List<Awards> awardsList) {
+		this.awardsList = awardsList;
+	}
+
+	public List<Associations> getAssociationList() {
+		return associationList;
+	}
+
+	public void setAssociationList(List<Associations> associationList) {
+		this.associationList = associationList;
+	}
+
+	public List<Documents> getDocumentList() {
+		return documentList;
+	}
+
+	public void setDocumentList(List<Documents> documentList) {
+		this.documentList = documentList;
+	}
+
+	public List<Education> getEducationList() {
+		return educationList;
+	}
+
+	public void setEducationList(List<Education> educationList) {
+		this.educationList = educationList;
+	}
+
+	public List<Endorsements> getEndorsementList() {
+		return endorsementList;
+	}
+
+	public void setEndorsementList(List<Endorsements> endorsementList) {
+		this.endorsementList = endorsementList;
+	}
+
+	public List<PracticeArea> getPracticeAreaList() {
+		return practiceAreaList;
+	}
+
+	public void setPracticeAreaList(List<PracticeArea> practiceAreaList) {
+		this.practiceAreaList = practiceAreaList;
+	}
+
+	public List<Publications> getPublicationList() {
+		return publicationList;
+	}
+
+	public void setPublicationList(List<Publications> publicationList) {
+		this.publicationList = publicationList;
+	}
+
+	public List<SpeakingEngagements> getSpeakingEngagementList() {
+		return speakingEngagementList;
+	}
+
+	public void setSpeakingEngagementList(List<SpeakingEngagements> speakingEngagementList) {
+		this.speakingEngagementList = speakingEngagementList;
+	}
+	
 	
 	/*
 	 * public Lawyer(Long lawyerId, String name, String description) { super();

@@ -5,24 +5,23 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
-
 @Entity
-@Table(name="VIEW_API_LAWYERS")
-@JsonFilter("lawyerListFilter")
-public class LawyerListApiModel implements Serializable {
+@Table(name="LAWYER_DETAILS_2")
+public class LawyerDetailsApiModel implements Serializable {
 
-	private static final long serialVersionUID = -5210402995276347872L;
+	private static final long serialVersionUID = 720200293861671680L;
 
 	@Id
+	@SequenceGenerator(name="LAWYER_ID", sequenceName="SEQ_LAWYER_ID", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="LAWYER_ID")
 	@Column(name = "LAWYER_ID")
 	private Long lawyerId;
-	
-	@Column(name = "LAWYER_CODE")
-	private String lawyerCode;
 	
 	@Column(name = "FIRST_NAME")
 	private String firstName;
@@ -79,15 +78,7 @@ public class LawyerListApiModel implements Serializable {
 	public void setLawyerId(Long lawyerId) {
 		this.lawyerId = lawyerId;
 	}
-	
-	public String getLawyerCode() {
-		return lawyerCode;
-	}
 
-	public void setLawyerCode(String lawyerCode) {
-		this.lawyerCode = lawyerCode;
-	}
-	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -215,5 +206,11 @@ public class LawyerListApiModel implements Serializable {
 	public void setModifiedDate(Date modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
-
+	
+	/*
+	 * public Lawyer(Long lawyerId, String name, String description) { super();
+	 * this.lawyerId = lawyerId; this.name = name; this.description = description; }
+	 */
+	
+	
 }

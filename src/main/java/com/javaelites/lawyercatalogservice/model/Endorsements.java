@@ -21,10 +21,10 @@ public class Endorsements implements Serializable {
 	@SequenceGenerator(name="ENDORSEMENT_ID", sequenceName="SEQ_ENDORSEMENT_ID", allocationSize=1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="ENDORSEMENT_ID")
 	@Column(name = "ENDORSEMENT_ID")
-	private Long consultationCostId;
+	private Long endorsementId;
 	
-	@Column(name = "LAWYER_ID")
-	private Long lawyerId;
+	@Column(name = "LAWYER_CODE")
+	private String lawyerCode;
 	
 	@Column(name = "USER_ID")
 	private Long userId;
@@ -50,20 +50,21 @@ public class Endorsements implements Serializable {
 	@Column(name = "MODIFIED_DATE")
 	private Date modifiedDate;
 
-	public Long getConsultationCostId() {
-		return consultationCostId;
+
+	public Long getEndorsementId() {
+		return endorsementId;
 	}
 
-	public void setConsultationCostId(Long consultationCostId) {
-		this.consultationCostId = consultationCostId;
+	public void setEndorsementId(Long endorsementId) {
+		this.endorsementId = endorsementId;
 	}
 
-	public Long getLawyerId() {
-		return lawyerId;
+	public String getLawyerCode() {
+		return lawyerCode;
 	}
 
-	public void setLawyerId(Long lawyerId) {
-		this.lawyerId = lawyerId;
+	public void setLawyerCode(String lawyerCode) {
+		this.lawyerCode = lawyerCode;
 	}
 
 	public Long getUserId() {

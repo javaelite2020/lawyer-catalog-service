@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.javaelites.lawyercatalogservice.domain.mapper.LawyerDetailsMapper;
 import com.javaelites.lawyercatalogservice.domain.mapper.ResponseMapper;
+import com.javaelites.lawyercatalogservice.model.LawyerDetails;
 import com.javaelites.lawyercatalogservice.model.LawyerListApiModel;
 import com.javaelites.lawyercatalogservice.util.DomainFilter;
 import com.javaelites.lawyercatalogservice.util.DomainFilterObjectMapper;
@@ -45,5 +46,11 @@ public class LawyerCatalogResponseHandler {
 		String totalResultsCount = size != null? String.valueOf(size): String.valueOf(data.size());
 		Metadata metadata = initializeResponse(fields, DomainFilter.lawyerListFilter, totalResultsCount, LawyerConstants.SUCCESS, LawyerConstants.OK);
 		return responseMapper.createResponseApiData(metadata, LawyerDetailsMapper.mapper.lawyerListModelToLawyerDataList(data));
+	}
+	
+	public ResponseApiData handleLawyerDetailsResponse (List<LawyerDetails> data) throws IOException {
+		responseValidator.validateEmptyResponse(data);
+		Metadata metadata = initializeResponse(null, null, String.valueOf(data.size()), LawyerConstants.SUCCESS, LawyerConstants.OK);
+		return responseMapper.createResponseApiData(metadata, LawyerDetailsMapper.mapper.LawyerDetailsListToLawyerDetailsApiDataList(data));
 	}
 }

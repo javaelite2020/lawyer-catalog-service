@@ -26,8 +26,8 @@ public class Documents implements Serializable {
 	@Column(name = "DOCUMENT_TYPE_ID")
 	private Long documentTypeId;
 	
-	@Column(name = "LAWYER_ID")
-	private Long lawyerId;
+	@Column(name = "LAWYER_CODE")
+	private String lawyerCode;
 	
 	@Column(name = "USER_ID")
 	private Long userId;
@@ -55,7 +55,102 @@ public class Documents implements Serializable {
 	
 	@Column(name = "MODIFIED_DATE")
 	private Date modifiedDate;
-	
+
+	public Long getConsultationCostId() {
+		return consultationCostId;
+	}
+
+	public void setConsultationCostId(Long consultationCostId) {
+		this.consultationCostId = consultationCostId;
+	}
+
+	public Long getDocumentTypeId() {
+		return documentTypeId;
+	}
+
+	public void setDocumentTypeId(Long documentTypeId) {
+		this.documentTypeId = documentTypeId;
+	}
+
+	public String getLawyerCode() {
+		return lawyerCode;
+	}
+
+	public void setLawyerCode(String lawyerCode) {
+		this.lawyerCode = lawyerCode;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public String getDocumentName() {
+		return documentName;
+	}
+
+	public void setDocumentName(String documentName) {
+		this.documentName = documentName;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getDownloadLink() {
+		return downloadLink;
+	}
+
+	public void setDownloadLink(String downloadLink) {
+		this.downloadLink = downloadLink;
+	}
+
+	public Date getDocumentDate() {
+		return documentDate;
+	}
+
+	public void setDocumentDate(Date documentDate) {
+		this.documentDate = documentDate;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public String getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(String modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
+
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
 	
 	
 }

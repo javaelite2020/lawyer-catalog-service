@@ -23,8 +23,8 @@ public class LawyerPracticeAreaMap implements Serializable {
 	@Column(name = "LAWYER_PRACTICE_AREA_MAP_ID")
 	private Long lawyerPracticeAreaMapId;
 	
-	@Column(name = "LAWYER_ID")
-	private Long lawyerId;
+	@Column(name = "LAWYER_CODE")
+	private String lawyerCode;
 	
 	@Column(name = "PRACTICE_AREA_ID")
 	private Long practiceAreaId;
@@ -55,12 +55,12 @@ public class LawyerPracticeAreaMap implements Serializable {
 		this.lawyerPracticeAreaMapId = lawyerPracticeAreaMapId;
 	}
 
-	public Long getLawyerId() {
-		return lawyerId;
+	public String getLawyerCode() {
+		return lawyerCode;
 	}
 
-	public void setLawyerId(Long lawyerId) {
-		this.lawyerId = lawyerId;
+	public void setLawyerCode(String lawyerCode) {
+		this.lawyerCode = lawyerCode;
 	}
 
 	public Long getPracticeAreaId() {

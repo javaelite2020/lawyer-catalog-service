@@ -23,8 +23,8 @@ public class SpeakingEngagements implements Serializable {
 	@Column(name = "SPEAKING_ENGAGEMENT_ID")
 	private Long speakingEngagementId;
 	
-	@Column(name = "LAWYER_ID")
-	private Long lawyerId;
+	@Column(name = "LAWYER_CODE")
+	private String lawyerCode;
 	
 	@Column(name = "CONFERENCE_NAME")
 	private String conferenceName;
@@ -55,12 +55,12 @@ public class SpeakingEngagements implements Serializable {
 		this.speakingEngagementId = speakingEngagementId;
 	}
 
-	public Long getLawyerId() {
-		return lawyerId;
+	public String getLawyerCode() {
+		return lawyerCode;
 	}
 
-	public void setLawyerId(Long lawyerId) {
-		this.lawyerId = lawyerId;
+	public void setLawyerCode(String lawyerCode) {
+		this.lawyerCode = lawyerCode;
 	}
 
 	public String getConferenceName() {

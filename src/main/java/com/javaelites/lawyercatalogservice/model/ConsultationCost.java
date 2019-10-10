@@ -23,8 +23,8 @@ public class ConsultationCost implements Serializable {
 	@Column(name = "CONSULTATION_COST_ID")
 	private Long consultationCostId;
 	
-	@Column(name = "LAWYER_ID")
-	private Long lawyerId;
+	@Column(name = "LAWYER_CODE")
+	private String lawyerCode;
 	
 	@Column(name = "HOURLY_RATE")
 	private String hourlyRate;
@@ -60,14 +60,14 @@ public class ConsultationCost implements Serializable {
 		this.consultationCostId = consultationCostId;
 	}
 
-	public Long getLawyerId() {
-		return lawyerId;
+	public String getLawyerCode() {
+		return lawyerCode;
 	}
 
-	public void setLawyerId(Long lawyerId) {
-		this.lawyerId = lawyerId;
+	public void setLawyerCode(String lawyerCode) {
+		this.lawyerCode = lawyerCode;
 	}
-
+	
 	public String getHourlyRate() {
 		return hourlyRate;
 	}

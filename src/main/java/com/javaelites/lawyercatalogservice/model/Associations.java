@@ -21,10 +21,10 @@ public class Associations implements Serializable {
 	@SequenceGenerator(name="ASSOCIATION_ID", sequenceName="SEQ_ASSOCIATION_ID", allocationSize=1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="ASSOCIATION_ID")
 	@Column(name = "ASSOCIATION_ID")
-	private Long consultationCostId;
+	private Long associationId;
 	
-	@Column(name = "LAWYER_ID")
-	private Long lawyerId;
+	@Column(name = "LAWYER_CODE")
+	private String lawyerCode;
 	
 	@Column(name = "NAME")
 	private String name;
@@ -47,20 +47,21 @@ public class Associations implements Serializable {
 	@Column(name = "MODIFIED_DATE")
 	private Date modifiedDate;
 
-	public Long getConsultationCostId() {
-		return consultationCostId;
+
+	public Long getAssociationId() {
+		return associationId;
 	}
 
-	public void setConsultationCostId(Long consultationCostId) {
-		this.consultationCostId = consultationCostId;
+	public void setAssociationId(Long associationId) {
+		this.associationId = associationId;
 	}
 
-	public Long getLawyerId() {
-		return lawyerId;
+	public String getLawyerCode() {
+		return lawyerCode;
 	}
 
-	public void setLawyerId(Long lawyerId) {
-		this.lawyerId = lawyerId;
+	public void setLawyerCode(String lawyerCode) {
+		this.lawyerCode = lawyerCode;
 	}
 
 	public String getName() {
