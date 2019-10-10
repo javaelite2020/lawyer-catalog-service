@@ -24,4 +24,5 @@ public class ResponseValidator {
 		}
 		return true;
 	}
+
 }

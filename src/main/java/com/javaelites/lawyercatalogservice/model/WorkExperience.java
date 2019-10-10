@@ -23,8 +23,8 @@ public class WorkExperience implements Serializable {
 	@Column(name = "WORK_EXPERIENCE_ID")
 	private Long workExperienceId;
 	
-	@Column(name = "LAWYER_ID")
-	private Long lawyerId;
+	@Column(name = "LAWYER_CODE")
+	private String lawyerCode;
 	
 	@Column(name = "TITLE")
 	private String title;
@@ -55,12 +55,12 @@ public class WorkExperience implements Serializable {
 		this.workExperienceId = workExperienceId;
 	}
 
-	public Long getLawyerId() {
-		return lawyerId;
+	public String getLawyerCode() {
+		return lawyerCode;
 	}
 
-	public void setLawyerId(Long lawyerId) {
-		this.lawyerId = lawyerId;
+	public void setLawyerCode(String lawyerCode) {
+		this.lawyerCode = lawyerCode;
 	}
 
 	public String getTitle() {

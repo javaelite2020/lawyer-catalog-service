@@ -13,5 +13,6 @@ public class LawyerConstants {
 	public static final String RESPONSE_JSON = "application/json";
 	public static final String SUCCESS = "Success";
 	public static final String OK = "OK";
-	public static String _0 = "0";
+	public static final String _1 = "1";
+	public static final String _0 = "0";
 }

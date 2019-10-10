@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
+import com.javaelites.lawyercatalogservice.domain.dto.LawyerDetailsApiData;
+import com.javaelites.lawyercatalogservice.domain.dto.LawyerListApiData;
 import com.javaelites.lawyercatalogservice.model.LawyerDetails;
-import com.javaelites.lawyercatalogservice.model.LawyerListApiModel;
 import com.javaelites.lawyercatalogservice.service.LawyerCatalogService;
 import com.javaelites.lawyercatalogservice.util.LawyerDetailsConstants;
 import com.javaelites.lawyercatalogservice.util.PageRequestUtil;
@@ -48,7 +49,7 @@ public class LawyerCatalogController {
 	 * @throws Exception 
 	 */
 	@RequestMapping(method=RequestMethod.GET)
-	public ResponseApiData<LawyerListApiModel> findAndListAllLawyers(
+	public ResponseApiData<LawyerListApiData> findAndListAllLawyers(
 			@RequestParam(value = "fields", required = false) String fields,
 			@RequestParam(value = "sorts", required = false, defaultValue = "") String sorts,
 			@RequestParam(value = "limit", required = false) Integer limit,
@@ -58,14 +59,20 @@ public class LawyerCatalogController {
 		logger.debug("Inside Lawyer Catalog Controller {} findAndListAllLawyers", this.getClass());
 		PageRequest pageRequest = PageRequestUtil.getPageRequest(pageNumber, limit, sorts, LawyerDetailsConstants.fist_name.getValue());
 		SearchApiData searchData = new Gson().fromJson(search, SearchApiData.class);
-		ResponseApiData<LawyerListApiModel> lawyerList = lawyerCatalogService.getAllLawyerList(fields, pageRequest, searchData);
+		ResponseApiData<LawyerListApiData> lawyerList = lawyerCatalogService.getAllLawyerList(fields, pageRequest, searchData);
 		return lawyerList;
 		
 	}
+	
+	@RequestMapping(value= "/{lawyer_code}", method = RequestMethod.GET, produces = "application/json")
+	public ResponseApiData<LawyerDetailsApiData> getLawyerDetails(@PathVariable("lawyer_code") String lawyerCode) throws IOException {
+		logger.debug("Going to retrieve Lawyer details for id - ", lawyerCode);
+		return lawyerCatalogService.getLawyerDetails(lawyerCode);
+	}
 
 	/*
-	 * @RequestMapping("/{lawyerId}") public LawyerDetails
-	 * getLawyerInfo(@PathVariable("lawyerId") String lawyerId) { return new
+	 * @RequestMapping("/{lawyerCode}") public LawyerDetails
+	 * getLawyerInfo(@PathVariable("lawyerCode") String lawyerCode) { return new
 	 * LawyerDetails();
 	 * 
 	 * }
@@ -74,15 +81,15 @@ public class LawyerCatalogController {
 	
 	/**
 	 * This method retrieves the Lawyer details(Location, consultation cost, personal information)
-	 * based on the lawyerid.
-	 * @param lawyerId
+	 * based on the lawyerCode.
+	 * @param lawyerCode
 	 * @return LawyerDetails
 	 */
-	@RequestMapping(value= "/{lawyerId}", method = RequestMethod.GET, produces = "application/json")
-	public LawyerDetails getLawyerDetails(@PathVariable("lawyerId") String lawyerId) {
-		logger.debug("Going to retrieve Lawyer details for id - ", lawyerId);
+	@RequestMapping(value= "/{lawyer_code}/temp", method = RequestMethod.GET, produces = "application/json")
+	public LawyerDetails getLawyerDetails2(@PathVariable("lawyer_code") String lawyerCode) {
+		logger.debug("Going to retrieve Lawyer details for id - ", lawyerCode);
 		return new LawyerDetails();
-//		return lawyerCatalogService.getLawyerDetails(lawyerId);
+//		return lawyerCatalogService.getLawyerDetails(lawyerCode);
 	}
 	
 	

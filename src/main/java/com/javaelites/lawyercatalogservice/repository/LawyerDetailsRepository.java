@@ -9,5 +9,7 @@ import com.javaelites.lawyercatalogservice.model.LawyerDetails;
 @Repository
 public interface LawyerDetailsRepository extends JpaRepository<LawyerDetails, Long>, QuerydslPredicateExecutor<LawyerDetails>{
 
+	LawyerDetails findByLawyerCode(String lawyerCode);
+
 	
 }

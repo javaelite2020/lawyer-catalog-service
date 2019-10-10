@@ -23,8 +23,8 @@ public class Answers implements Serializable {
 	@Column(name = "ANSWER_ID")
 	private Long consultationCostId;
 	
-	@Column(name = "LAWYER_ID")
-	private Long lawyerId;
+	@Column(name = "LAWYER_CODE")
+	private String lawyerCode;
 	
 	@Column(name = "QUESTION_ID")
 	private Long questionId;
@@ -58,12 +58,12 @@ public class Answers implements Serializable {
 		this.consultationCostId = consultationCostId;
 	}
 
-	public Long getLawyerId() {
-		return lawyerId;
+	public String getLawyerCode() {
+		return lawyerCode;
 	}
 
-	public void setLawyerId(Long lawyerId) {
-		this.lawyerId = lawyerId;
+	public void setLawyerCode(String lawyerCode) {
+		this.lawyerCode = lawyerCode;
 	}
 
 	public Long getQuestionId() {
