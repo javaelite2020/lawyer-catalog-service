@@ -1,37 +1,35 @@
 package com.javaelites.lawyercatalogservice.controller;
 
-import java.io.IOException;
-
+import com.google.gson.Gson;
+import com.javaelites.lawyercatalogservice.model.LawyerDetails;
+import com.javaelites.lawyercatalogservice.model.LawyerListApiModel;
+import com.javaelites.lawyercatalogservice.service.LawyerCatalogService;
+import com.javaelites.lawyercatalogservice.util.LawyerDetailsConstants;
+import com.javaelites.lawyercatalogservice.util.PageRequestUtil;
+import com.javaelites.lawyercatalogservice.util.ResponseApiData;
+import com.javaelites.lawyercatalogservice.util.SearchApiData;
+import io.swagger.annotations.Api;
+import lombok.extern.log4j.Log4j2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.gson.Gson;
-import com.javaelites.lawyercatalogservice.domain.dto.LawyerDetailsApiData;
-import com.javaelites.lawyercatalogservice.domain.dto.LawyerListApiData;
-import com.javaelites.lawyercatalogservice.model.LawyerDetails;
-import com.javaelites.lawyercatalogservice.service.LawyerCatalogService;
-import com.javaelites.lawyercatalogservice.util.LawyerDetailsConstants;
-import com.javaelites.lawyercatalogservice.util.PageRequestUtil;
-import com.javaelites.lawyercatalogservice.util.ResponseApiData;
-import com.javaelites.lawyercatalogservice.util.SearchApiData;
-
-import io.swagger.annotations.Api;
-
 @Configuration
 @RestController
-@RequestMapping(value= {"/lawyers"}, produces=MediaType.APPLICATION_JSON_VALUE)
-@Api(value="Lawyer Catalog API")
+@RequestMapping(value = {"/lawyers"}, produces = MediaType.APPLICATION_JSON_VALUE)
+@Api(value = "Lawyer Catalog API")
+@Log4j2
 public class LawyerCatalogController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(LawyerCatalogController.class);
 	
 	@Autowired
@@ -49,6 +47,7 @@ public class LawyerCatalogController {
 	 * @throws Exception 
 	 */
 	@RequestMapping(method=RequestMethod.GET)
+  @CrossOrigin(origins = "*")
 	public ResponseApiData<LawyerListApiData> findAndListAllLawyers(
 			@RequestParam(value = "fields", required = false) String fields,
 			@RequestParam(value = "sorts", required = false, defaultValue = "") String sorts,
@@ -65,6 +64,7 @@ public class LawyerCatalogController {
 	}
 	
 	@RequestMapping(value= "/{lawyer_code}", method = RequestMethod.GET, produces = "application/json")
+  @CrossOrigin(origins = "*")
 	public ResponseApiData<LawyerDetailsApiData> getLawyerDetails(@PathVariable("lawyer_code") String lawyerCode) throws IOException {
 		logger.debug("Going to retrieve Lawyer details for id - ", lawyerCode);
 		return lawyerCatalogService.getLawyerDetails(lawyerCode);
@@ -86,13 +86,12 @@ public class LawyerCatalogController {
 	 * @return LawyerDetails
 	 */
 	@RequestMapping(value= "/{lawyer_code}/temp", method = RequestMethod.GET, produces = "application/json")
+  @CrossOrigin(origins = "*")
 	public LawyerDetails getLawyerDetails2(@PathVariable("lawyer_code") String lawyerCode) {
 		logger.debug("Going to retrieve Lawyer details for id - ", lawyerCode);
 		return new LawyerDetails();
 //		return lawyerCatalogService.getLawyerDetails(lawyerCode);
 	}
-	
-	
 	
 	
 }
