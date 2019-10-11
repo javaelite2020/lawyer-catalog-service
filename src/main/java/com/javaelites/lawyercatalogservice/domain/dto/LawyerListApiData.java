@@ -8,8 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonFilter("lawyerListFilter")
 public class LawyerListApiData {
 
-	@JsonProperty("LAWYER_ID")
-	private Long lawyerId;
+	@JsonProperty("lawyer_code")
+	private String lawyerCode;
 	
 	@JsonProperty("FIRST_NAME")
 	private String firstName;
@@ -59,12 +59,12 @@ public class LawyerListApiData {
 	@JsonProperty("MODIFIED_DATE")
 	private Date modifiedDate;
 
-	public Long getLawyerId() {
-		return lawyerId;
+	public String getLawyerCode() {
+		return lawyerCode;
 	}
 
-	public void setLawyerId(Long lawyerId) {
-		this.lawyerId = lawyerId;
+	public void setLawyerCode(String lawyerCode) {
+		this.lawyerCode = lawyerCode;
 	}
 
 	public String getFirstName() {

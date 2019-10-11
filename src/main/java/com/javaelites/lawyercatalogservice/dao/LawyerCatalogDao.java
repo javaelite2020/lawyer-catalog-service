@@ -30,6 +30,10 @@ public interface LawyerCatalogDao {
 	
 	public List<LawyerResumeApiModel> getLawyerResumeDetails(String lawyerId);
 
+	public LawyerDetails saveLawyerDetails(LawyerDetails lawyerDetails);
+
+	public void deleteLawyerDetails(LawyerDetails lawyer);
+
 	
 	
 }

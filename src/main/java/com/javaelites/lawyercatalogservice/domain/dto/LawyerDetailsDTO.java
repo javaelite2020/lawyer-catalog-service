@@ -1,73 +1,68 @@
 package com.javaelites.lawyercatalogservice.domain.dto;
 
 import java.sql.Date;
-import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class LawyerDetails {
+public class LawyerDetailsDTO {
 
-	@JsonProperty("LAWYER_ID")
-	private Long lawyerId;
+	@JsonProperty("lawyer_code")
+	private String lawyerCode;
 	
-	@JsonProperty("FIRST_NAME")
+	@JsonProperty("first_name")
 	private String firstName;
 	
-	@JsonProperty("MIDDLE_NAME")
+	@JsonProperty("middle_name")
 	private String middleName;
 	
-	@JsonProperty("LAST_NAME")
+	@JsonProperty("last_name")
 	private String lastName;
 	
-	@JsonProperty("DESCRIPTION")
+	@JsonProperty("description")
 	private String description;
 	
-	@JsonProperty("LONG_DESCRIPTION")
+	@JsonProperty("long_description")
 	private String longDescription;
 	
-	@JsonProperty("CELL_PHONE")
+	@JsonProperty("cell_phone")
 	private String cellPhone;
 	
-	@JsonProperty("OFFICE_PHONE")
+	@JsonProperty("office_phone")
 	private String officePhone;
 	
-	@JsonProperty("AVERAGE_RATING")
+	@JsonProperty("average_rating")
 	private Long averageRating;
 	
-	@JsonProperty("AVERAGE_LAWYER_RATING")
+	@JsonProperty("average_lawyer_rating")
 	private Long averageLawyerRating;
 	
-	@JsonProperty("WEBSITE")
+	@JsonProperty("website")
 	private String website;
 	
-	@JsonProperty("LAWFIRM_NAME")
+	@JsonProperty("lawfirm_name")
 	private String lawfirmName;
 	
-	@JsonProperty("LANGUAGES")
+	@JsonProperty("languages")
 	private String languages;
 	
-	@JsonProperty("CREATED_BY")
+	@JsonProperty("created_by")
 	private String createdBy;
 	
-	@JsonProperty("CREATED_DATE")
+	@JsonProperty("created_date")
 	private Date createdDate; 
 	
-	@JsonProperty("MODIFIED_BY")
+	@JsonProperty("modified_by")
 	private String modifiedBy;
 	
-	@JsonProperty("MODIFIED_DATE")
+	@JsonProperty("modified_date")
 	private Date modifiedDate;
-	
-	private List<LawyerLocation> lawyerLocation;
-	
-	private List<LawyerConsultationCost> lawyerConsultationCost;
 
-	public Long getLawyerId() {
-		return lawyerId;
+	public String getLawyerCode() {
+		return lawyerCode;
 	}
 
-	public void setLawyerId(Long lawyerId) {
-		this.lawyerId = lawyerId;
+	public void setLawyerCode(String lawyerCode) {
+		this.lawyerCode = lawyerCode;
 	}
 
 	public String getFirstName() {
@@ -197,27 +192,5 @@ public class LawyerDetails {
 	public void setModifiedDate(Date modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
-
-	public List<LawyerLocation> getLawyerLocation() {
-		return lawyerLocation;
-	}
-
-	public void setLawyerLocation(List<LawyerLocation> lawyerLocation) {
-		this.lawyerLocation = lawyerLocation;
-	}
-
-	public List<LawyerConsultationCost> getLawyerConsultationCost() {
-		return lawyerConsultationCost;
-	}
-
-	public void setLawyerConsultationCost(List<LawyerConsultationCost> lawyerConsultationCost) {
-		this.lawyerConsultationCost = lawyerConsultationCost;
-	}
-	
-	/*
-	 * public Lawyer(Long lawyerId, String name, String description) { super();
-	 * this.lawyerId = lawyerId; this.name = name; this.description = description; }
-	 */
-	
 	
 }
