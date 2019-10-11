@@ -82,5 +82,16 @@ public class LawyerCatalogDaoImpl implements LawyerCatalogDao {
 		return lawyerResumeApiModelRepository.findByLawyerCode(lawyerCode);
 	}
 
+	@Override
+	public LawyerDetails saveLawyerDetails(LawyerDetails lawyerDetails) {
+		logger.debug("{} - Inside saveLawyerDetails method", this.getClass());
+		return lawyerDetailsRepository.save(lawyerDetails);
+	}
+	
+	@Override
+	public void deleteLawyerDetails(LawyerDetails lawyer) {
+		logger.debug("{} - Inside deleteLawyerDetails method", this.getClass());
+		lawyerDetailsRepository.delete(lawyer);
+	}
 }
 

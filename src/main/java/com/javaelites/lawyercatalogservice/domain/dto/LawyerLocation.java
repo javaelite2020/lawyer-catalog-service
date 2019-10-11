@@ -9,8 +9,8 @@ public class LawyerLocation {
 	@JsonProperty("LAWYER_LOCATION_ID")
 	private Long lawyerLocationId;
 	
-	@JsonProperty("LAWYER_ID")
-	private Long lawyerId;
+	@JsonProperty("lawyer_code")
+	private String lawyerCode;
 	
 	@JsonProperty("ADDRESS1")
 	private String address1;
@@ -51,14 +51,6 @@ public class LawyerLocation {
 
 	public void setLawyerLocationId(Long lawyerLocationId) {
 		this.lawyerLocationId = lawyerLocationId;
-	}
-
-	public Long getLawyerId() {
-		return lawyerId;
-	}
-
-	public void setLawyerId(Long lawyerId) {
-		this.lawyerId = lawyerId;
 	}
 
 	public String getAddress1() {

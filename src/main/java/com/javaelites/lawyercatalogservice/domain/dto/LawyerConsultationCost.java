@@ -9,8 +9,8 @@ public class LawyerConsultationCost {
 	@JsonProperty("LAWYER_CONSULTATION_ID")
 	public Long consultationCostId;
 	
-	@JsonProperty("LAWYER_ID")
-	public Long lawyerId;
+	@JsonProperty("lawyer_code")
+	private String lawyerCode;
 	
 	@JsonProperty("HOURLY_RATE")
 	public String hourlyRate;
@@ -36,8 +36,6 @@ public class LawyerConsultationCost {
 	@JsonProperty("MODIFIED_DATE")
 	public Date modifiedDate;
 	
-	
-
 	public Long getConsultationCostId() {
 		return consultationCostId;
 	}
@@ -46,12 +44,12 @@ public class LawyerConsultationCost {
 		this.consultationCostId = consultationCostId;
 	}
 
-	public Long getLawyerId() {
-		return lawyerId;
+	public String getLawyerCode() {
+		return lawyerCode;
 	}
 
-	public void setLawyerId(Long lawyerId) {
-		this.lawyerId = lawyerId;
+	public void setLawyerCode(String lawyerCode) {
+		this.lawyerCode = lawyerCode;
 	}
 
 	public String getHourlyRate() {
@@ -84,6 +82,38 @@ public class LawyerConsultationCost {
 
 	public void setContingencyRate(String contingencyRate) {
 		this.contingencyRate = contingencyRate;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public String getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(String modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
+
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
 	}
 
 }

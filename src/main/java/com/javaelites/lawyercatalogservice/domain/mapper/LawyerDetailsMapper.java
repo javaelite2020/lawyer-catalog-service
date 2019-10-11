@@ -6,6 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 import com.javaelites.lawyercatalogservice.domain.dto.LawyerDetailsApiData;
+import com.javaelites.lawyercatalogservice.domain.dto.LawyerDetailsDTO;
 import com.javaelites.lawyercatalogservice.domain.dto.LawyerListApiData;
 import com.javaelites.lawyercatalogservice.model.LawyerDetails;
 import com.javaelites.lawyercatalogservice.model.LawyerListApiModel;
@@ -19,4 +20,7 @@ public interface LawyerDetailsMapper {
 	LawyerListApiData lawyerModelToLawyerData(LawyerListApiModel lawyerModel);
 	List<LawyerDetailsApiData> LawyerDetailsListToLawyerDetailsApiDataList(List<LawyerDetails> lawyerModelList);
 	LawyerDetailsApiData LawyerDetailsToLawyerDetailsApiData(LawyerDetails lawyerModel);
+	
+
+	LawyerDetails lawyerDetailsDTOToLawyerDetails(LawyerDetailsDTO lawyerDetailsDTO);
 }

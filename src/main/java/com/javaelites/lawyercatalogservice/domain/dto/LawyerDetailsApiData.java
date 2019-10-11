@@ -16,8 +16,8 @@ import com.javaelites.lawyercatalogservice.model.SpeakingEngagements;
 
 public class LawyerDetailsApiData {
 
-	@JsonProperty("lawyer_id")
-	private Long lawyerId;
+	@JsonProperty("lawyer_code")
+	private String lawyerCode;
 	
 	@JsonProperty("first_name")
 	private String firstName;
@@ -90,12 +90,12 @@ public class LawyerDetailsApiData {
 	@JsonProperty("consultation_cost")
 	private List<LawyerConsultationCost> lawyerConsultationCost;
 
-	public Long getLawyerId() {
-		return lawyerId;
+	public String getLawyerCode() {
+		return lawyerCode;
 	}
 
-	public void setLawyerId(Long lawyerId) {
-		this.lawyerId = lawyerId;
+	public void setLawyerCode(String lawyerCode) {
+		this.lawyerCode = lawyerCode;
 	}
 
 	public String getFirstName() {
