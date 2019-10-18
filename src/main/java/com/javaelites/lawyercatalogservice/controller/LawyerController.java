@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,15 +31,16 @@ import lombok.extern.log4j.Log4j2;
 
 @Configuration
 @RestController
-@RequestMapping(value = {"/lawyers"}, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = {"/api/lawyers"}, produces = MediaType.APPLICATION_JSON_VALUE)
 @Api(value = "Lawyer Catalog API")
 @Log4j2
-public class LawyerCatalogController {
+public class LawyerController {
 
-	private static final Logger logger = LoggerFactory.getLogger(LawyerCatalogController.class);
+	private static final Logger logger = LoggerFactory.getLogger(LawyerController.class);
 	
 	@Autowired
 	private LawyerCatalogService lawyerCatalogService;
+	
 	
 	/**
 	 * Find and List all Laywers based on Page criteria
@@ -54,11 +54,10 @@ public class LawyerCatalogController {
 	 * @throws Exception 
 	 */
 	@RequestMapping(method=RequestMethod.GET)
-    @CrossOrigin(origins = "*")
 	public ResponseApiData<LawyerListApiData> findAndListAllLawyers(
 			@RequestParam(value = "fields", required = false) String fields,
 			@RequestParam(value = "sorts", required = false, defaultValue = "") String sorts,
-			@RequestParam(value = "limit", required = false) Integer limit,
+			@RequestParam(value = "limit", required = false, defaultValue = "25") Integer limit,
 			@RequestParam(value = "page_number", required = false, defaultValue = "1") Integer pageNumber,
 			@RequestParam(value = "search", required = false) String search
 			) throws Exception {
@@ -71,7 +70,6 @@ public class LawyerCatalogController {
 	}
 	
 	@RequestMapping(value= "/{lawyer_code}", method = RequestMethod.GET, produces = LawyerConstants.APPLICATION_JSON)
-    @CrossOrigin(origins = "*")
 	public ResponseApiData<LawyerDetailsApiData> getLawyerDetails(@PathVariable("lawyer_code") String lawyerCode) throws IOException {
 		logger.debug("Going to retrieve Lawyer details for id - ", lawyerCode);
 		return lawyerCatalogService.getLawyerDetails(lawyerCode);
@@ -79,7 +77,6 @@ public class LawyerCatalogController {
 
 	
 	@RequestMapping(method = RequestMethod.POST, produces = LawyerConstants.APPLICATION_JSON, consumes = LawyerConstants.APPLICATION_JSON)
-	@CrossOrigin(origins = "*")
 	public ResponseApiData<LawyerDetailsApiData> addLawyerDetails(@RequestBody LawyerDetailsDTO lawyerDetails) throws IOException {
 		logger.debug("Inside Lawyer API Controller - {} addLawyers method", this.getClass().getSimpleName());
 		ResponseApiData<LawyerDetailsApiData> response = lawyerCatalogService.addLawyerDetails(lawyerDetails);
@@ -88,7 +85,6 @@ public class LawyerCatalogController {
 	
 
 	@RequestMapping(value = "/{lawyer_code}", method = RequestMethod.PUT, produces = LawyerConstants.APPLICATION_JSON, consumes = LawyerConstants.APPLICATION_JSON)
-	@CrossOrigin(origins = "*")
 	public ResponseApiData<LawyerDetailsApiData> updateLawyerDetails(@RequestBody LawyerDetailsDTO lawyerDetails,
 			@PathVariable("lawyer_code") String lawyerCode) throws IOException {
 		logger.debug("Inside Lawyer API Controller - {} updateLawyerDetails method", this.getClass().getSimpleName());
@@ -98,7 +94,6 @@ public class LawyerCatalogController {
 	
 
 	@RequestMapping(value = "/{lawyer_code}", method = RequestMethod.DELETE, produces = LawyerConstants.APPLICATION_JSON, consumes = LawyerConstants.APPLICATION_JSON)
-	@CrossOrigin(origins = "*")
 	public ResponseApiData deleteLawyerDetails(@PathVariable("lawyer_code") String lawyerCode) throws IOException {
 		logger.debug("Inside Lawyer API Controller - {} deleteLawyerDetails method", this.getClass().getSimpleName());
 		ResponseApiData response = lawyerCatalogService.deleteLawyerDetails(lawyerCode);
